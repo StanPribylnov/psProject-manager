@@ -1,0 +1,17 @@
+<%= link_to 'Back', projects_path %>
+
+<%= form_for :project, url: project_path(@project), method: :patch do |f| %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :actual %><br>
+      <%= f.text_field :actual %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

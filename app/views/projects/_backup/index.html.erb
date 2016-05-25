@@ -1,0 +1,29 @@
+
+<h3>Index</h3>
+
+<%= link_to 'New project', new_project_path %>
+
+<% @projects.each do |project| %>
+  <div class="project">
+    <%= project.name %>
+    Project id: <%= project.id %>
+    <%= link_to 'Edit', edit_project_path(project) %>
+    <%=
+      link_to 'Destroy',
+      project_path(project),method: :delete,
+      data: { confirm: 'Are you sure?' }
+    %>
+    <ul>
+      <% @tasks.each do |task| %>
+          <%if(project.id == task.project_id)%>
+            <li>
+              <%= task.name %>
+              <%= task.description %>
+              Project id: <%= task.project_id %>
+            </li>
+          <%end%>
+      <% end %>
+    </ul>
+
+  </div>
+<% end %>

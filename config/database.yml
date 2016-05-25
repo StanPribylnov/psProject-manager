@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: psProject-manager_development
+  pool: 5
+  username: stan
+  password: 1970
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: psProject-manager_test
+  pool: 5
+  username: stan
+  password: 1970

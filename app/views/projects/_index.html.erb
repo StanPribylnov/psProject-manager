@@ -1,0 +1,30 @@
+<% @projects.each do |project| %>
+
+    <div>
+      <div class="ps-header">
+        <%= project.name %>
+        <%= link_to 'Edit', edit_project_path(project), remote: true %>
+        <%= link_to 'Destroy', project_path(project), method: :delete %>
+      </div>
+    </div>
+
+    <ul>
+      <% @tasks.each do |task| %>
+          <li>
+            <%= form_for @task, remote: true do |f| %>
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+              <%= f.submit %>
+            <% end %>
+          </li>
+          <li>
+            <%= task.name %>
+            <%= task.description %>
+            Project id: <%= task.project_id %>
+            <%= link_to 'Edit', edit_task_path(task), remote: true %>
+            <%= link_to 'Destroy', task_path(task), method: :delete %>
+          </li>
+      <% end %>
+    </ul>
+
+<% end %>
